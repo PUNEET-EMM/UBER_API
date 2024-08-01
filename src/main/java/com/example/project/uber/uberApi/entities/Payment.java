@@ -1,5 +1,6 @@
 package com.example.project.uber.uberApi.entities;
 
+import com.example.project.uber.uberApi.dto.PointDto;
 import com.example.project.uber.uberApi.entities.enums.PaymentMethod;
 import com.example.project.uber.uberApi.entities.enums.PaymentStatus;
 import jakarta.persistence.*;
@@ -26,4 +27,6 @@ public class Payment {
 
     @CreationTimestamp
     private LocalDateTime paymentTime;
+
+
 }

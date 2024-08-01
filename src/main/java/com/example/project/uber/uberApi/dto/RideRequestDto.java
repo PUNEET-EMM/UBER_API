@@ -1,10 +1,10 @@
 package com.example.project.uber.uberApi.dto;
 
+import com.example.project.uber.uberApi.entities.enums.PaymentMethod;
 import com.example.project.uber.uberApi.entities.enums.RideRequestStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.geo.Point;
 
 import java.time.LocalDateTime;
 
@@ -14,15 +14,15 @@ import java.time.LocalDateTime;
 public class RideRequestDto {
     private Long id;
 
-    private Point pickupLocation;
+    private PointDto pickupLocation;
 
-    private Point dropOffLocation;
+    private PointDto dropOffLocation;
 
     private LocalDateTime requestedTime;
 
     private RiderDto rider;
 
-//    private PaymentMethod paymentMethod;
+    private PaymentMethod paymentMethod;
 
     private RideRequestStatus rideRequestStatus;
 }

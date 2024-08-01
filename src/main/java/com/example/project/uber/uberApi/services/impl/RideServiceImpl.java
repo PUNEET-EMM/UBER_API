@@ -5,12 +5,17 @@ import com.example.project.uber.uberApi.entities.Driver;
 import com.example.project.uber.uberApi.entities.Ride;
 import com.example.project.uber.uberApi.entities.enums.RideStatus;
 import com.example.project.uber.uberApi.services.RideService;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class RideServiceImpl implements RideService {
+
+    private final ModelMapper modelMapper;
     @Override
     public Ride getRideById(Long rideId) {
         return null;
@@ -40,4 +45,5 @@ public class RideServiceImpl implements RideService {
     public Page<Ride> getAllRidesOfDriver(Long driverId, PageRequest pageRequest) {
         return null;
     }
+
 }

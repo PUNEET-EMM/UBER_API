@@ -3,7 +3,8 @@ package com.example.project.uber.uberApi.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.geo.Point;
+import org.locationtech.jts.geom.Point;
+//import org.springframework.data.geo.Point;
 
 @Entity
 @Getter
@@ -20,6 +21,8 @@ public class Driver {
 
     private Double rating;
     private Boolean available;
+
+    private String vehicleId;
 
     @Column(columnDefinition = "Geometry(Point, 4326)")
     Point currentLocation;
