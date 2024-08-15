@@ -17,6 +17,6 @@ public class RiderController {
 
     @PostMapping("/rideRequest")
     public RideRequestDto  rideRequest(@RequestBody RideRequestDto rideRequestDto){
-         return riderService.rideRequest(rideRequestDto);
+         return riderService.requestRide(rideRequestDto);
     }
 }

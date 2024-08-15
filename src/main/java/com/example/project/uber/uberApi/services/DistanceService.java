@@ -1,7 +1,7 @@
 package com.example.project.uber.uberApi.services;
 
-import org.springframework.data.geo.Point;
+import org.locationtech.jts.geom.Point;
 
 public interface DistanceService {
-    Double calculateDistance(Point src,Point dest);
+    Double calculateDistance(Point src, Point dest);
 }

@@ -23,7 +23,8 @@ public class User {
 
      private String password;
 
-     @ElementCollection(fetch=FetchType.LAZY)
-     @Enumerated(EnumType.STRING)
-     private Set<Role> roles;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
 }

@@ -22,4 +22,11 @@ public class AuthController {
         return  authService.signup(signupDto);
 
     }
+
+    @PostMapping("/signIn")
+    UserDto signUp(@RequestBody SignupDto signupDto) {
+        return authService.signup(signupDto);
+    }
+
+
 }

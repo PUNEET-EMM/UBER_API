@@ -13,5 +13,8 @@ import java.util.Set;
 public class UserDto {
     private String name;
     private String email;
-    private Set<Role> role;
+    private Set<Role> roles;
 }
+
+
+
