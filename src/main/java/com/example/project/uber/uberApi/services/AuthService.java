@@ -5,7 +5,9 @@ import com.example.project.uber.uberApi.dto.SignupDto;
 import com.example.project.uber.uberApi.dto.UserDto;
 
 public interface AuthService {
-    String login(String email,String password);
+    String login(String email, String password);
+
     UserDto signup(SignupDto signupDto);
-    DriverDto onboardNewDriver(Long userid);
+
+    DriverDto onboardNewDriver(Long userid, String vehicleId);
 }

@@ -1,13 +1,18 @@
 package com.example.project.uber.uberApi.entities;
 
-import com.example.project.uber.uberApi.dto.PointDto;
 import com.example.project.uber.uberApi.entities.enums.PaymentMethod;
 import com.example.project.uber.uberApi.entities.enums.PaymentStatus;
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 public class Payment {
     @Id

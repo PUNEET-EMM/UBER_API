@@ -2,7 +2,6 @@ package com.example.project.uber.uberApi.dto;
 
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data

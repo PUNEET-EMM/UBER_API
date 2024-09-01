@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeConflictException.class)
-    public ResponseEntity<ApiResponse<?>>  handleResourceNotFound( RuntimeConflictException exception){
+    public ResponseEntity<ApiResponse<?>> handleResourceNotFound(RuntimeConflictException exception) {
         ApiError apiError = ApiError.builder()
                 .status(HttpStatus.NOT_FOUND)
                 .message(exception.getMessage())
@@ -43,14 +43,13 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ApiResponse<?>>  handleInputValidationErrors(MethodArgumentNotValidException exception){
-        List<String>  errors  = exception
+    public ResponseEntity<ApiResponse<?>> handleInputValidationErrors(MethodArgumentNotValidException exception) {
+        List<String> errors = exception
                 .getBindingResult()
                 .getAllErrors()
                 .stream()
-                .map(error->error.getDefaultMessage())
+                .map(error -> error.getDefaultMessage())
                 .collect(Collectors.toList());
-
 
 
         ApiError apiError = ApiError.builder()
@@ -63,7 +62,6 @@ public class GlobalExceptionHandler {
 
 
     }
-
 
 
     private ResponseEntity<ApiResponse<?>> buildErrorResponseEntity(ApiError apiError) {

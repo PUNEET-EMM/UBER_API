@@ -2,9 +2,11 @@ package com.example.project.uber.uberApi.dto;
 
 import com.example.project.uber.uberApi.entities.enums.PaymentMethod;
 import com.example.project.uber.uberApi.entities.enums.RideStatus;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
+@Data
 public class RideDto {
     private Long id;
     private PointDto pickupLocation;

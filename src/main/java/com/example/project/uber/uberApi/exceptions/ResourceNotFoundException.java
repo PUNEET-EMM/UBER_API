@@ -1,6 +1,6 @@
 package com.example.project.uber.uberApi.exceptions;
 
-public class ResourceNotFoundException  extends  RuntimeException{
+public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException() {
     }
 

@@ -1,6 +1,5 @@
 package com.example.project.uber.uberApi.strategies.impl;
 
-import com.example.project.uber.uberApi.dto.RideRequestDto;
 import com.example.project.uber.uberApi.entities.Driver;
 import com.example.project.uber.uberApi.entities.RideRequest;
 import com.example.project.uber.uberApi.repositories.DriverRepository;
@@ -14,8 +13,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional()
-public class DriverMatchingNearestDriverStrategy  implements DriverMatchingStrategy {
-    private  final DriverRepository driverRepository;
+public class DriverMatchingNearestDriverStrategy implements DriverMatchingStrategy {
+    private final DriverRepository driverRepository;
 
     @Override
     public List<Driver> findMatchingDriver(RideRequest rideRequest) {

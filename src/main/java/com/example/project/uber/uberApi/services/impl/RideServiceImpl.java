@@ -4,6 +4,7 @@ import com.example.project.uber.uberApi.dto.RideRequestDto;
 import com.example.project.uber.uberApi.entities.Driver;
 import com.example.project.uber.uberApi.entities.Ride;
 import com.example.project.uber.uberApi.entities.RideRequest;
+import com.example.project.uber.uberApi.entities.Rider;
 import com.example.project.uber.uberApi.entities.enums.RideRequestStatus;
 import com.example.project.uber.uberApi.entities.enums.RideStatus;
 import com.example.project.uber.uberApi.exceptions.ResourceNotFoundException;
@@ -30,20 +31,17 @@ public class RideServiceImpl implements RideService {
     @Override
     public Ride getRideById(Long rideId) {
         return rideRepository.findById(rideId)
-                .orElseThrow(() -> new ResourceNotFoundException("Ride not found with id: "+rideId));
+                .orElseThrow(() -> new ResourceNotFoundException("Ride not found with id: " + rideId));
     }
 
 
-    @Override
-    public void matchWithDrivers(RideRequestDto rideRequestDto) {
 
-    }
 
     @Override
     public Ride createNewRide(RideRequest rideRequest, Driver driver) {
         rideRequest.setRideRequestStatus(RideRequestStatus.CONFIRMED);
 
-        Ride ride  = modelMapper.map(rideRequest,Ride.class);
+        Ride ride = modelMapper.map(rideRequest, Ride.class);
         ride.setRideStatus(RideStatus.CONFIRMED);
         ride.setDriver(driver);
         ride.setOtp(generateRandomOTP());
@@ -60,13 +58,13 @@ public class RideServiceImpl implements RideService {
     }
 
     @Override
-    public Page<Ride> getAllRidesOfRider(Long riderId, PageRequest pageRequest) {
-        return null;
+    public Page<Ride> getAllRidesOfRider(Rider rider, PageRequest pageRequest) {
+        return rideRepository.findByRider(rider, pageRequest);
     }
 
     @Override
-    public Page<Ride> getAllRidesOfDriver(Long driverId, PageRequest pageRequest) {
-        return null;
+    public Page<Ride> getAllRidesOfDriver(Driver driver, PageRequest pageRequest) {
+        return rideRepository.findByDriver(driver, pageRequest);
     }
 
 

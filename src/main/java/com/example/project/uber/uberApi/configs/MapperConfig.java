@@ -2,10 +2,10 @@ package com.example.project.uber.uberApi.configs;
 
 import com.example.project.uber.uberApi.dto.PointDto;
 import com.example.project.uber.uberApi.utils.GeometryUtil;
+import org.locationtech.jts.geom.Point;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.locationtech.jts.geom.Point;
 
 //@Configuration
 //public class MapperConfig {
