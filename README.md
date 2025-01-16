@@ -81,10 +81,10 @@ Configuration
 
 Add the following configuration to the application.properties file for the proper setup:
 
-# Application configuration
+### Application configuration
 spring.application.name=uberApi
 
-# Database configuration
+### Database configuration
 spring.datasource.url=jdbc:postgresql://localhost:5432/demoDB?useSSL=false
 
 spring.datasource.username=demoUser
@@ -97,17 +97,17 @@ spring.jpa.show-sql=true
 
 spring.jpa.properties.hibernate.format_sql=true
 
-# Data initialization
+### Data initialization
 spring.jpa.defer-datasource-initialization=true
 
 spring.sql.init.mode=always
 
 spring.sql.init.data-locations=classpath:data.sql
 
-# JWT configuration
+### JWT configuration
 jwt.secretKey=demoSecretKey1234567890
 
-# SMTP configuration
+### SMTP configuration
 spring.mail.username=your-email@example.com
 
 spring.mail.password=your-email-password
