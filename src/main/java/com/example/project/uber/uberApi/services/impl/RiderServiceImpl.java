@@ -10,10 +10,7 @@ import com.example.project.uber.uberApi.entities.enums.RideStatus;
 import com.example.project.uber.uberApi.exceptions.ResourceNotFoundException;
 import com.example.project.uber.uberApi.repositories.RideRequestRepository;
 import com.example.project.uber.uberApi.repositories.RiderRepository;
-import com.example.project.uber.uberApi.services.DriverService;
-import com.example.project.uber.uberApi.services.RatingService;
-import com.example.project.uber.uberApi.services.RideService;
-import com.example.project.uber.uberApi.services.RiderService;
+import com.example.project.uber.uberApi.services.*;
 import com.example.project.uber.uberApi.strategies.RideStrategyManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -38,6 +35,7 @@ public class RiderServiceImpl implements RiderService {
     private final RideService rideService;
     private final DriverService driverService;
     private final RatingService ratingService;
+    private final EmailSenderService emailSenderService;
 
     @Override
     @Transactional
@@ -55,7 +53,19 @@ public class RiderServiceImpl implements RiderService {
         List<Driver> drivers = rideStrategyManager
                 .driverMatchingStrategy(rider.getRating()).findMatchingDriver(rideRequest);
 
-//        TODO : Send notification to all the drivers about this ride request
+//      Send notification to all the drivers about this ride request
+
+        // Prepare email details
+        String subject = "New Ride Request: " + rider.getUser().getName();
+        String body = "A new ride request has been placed by " +rider.getUser().getName() + ".\n" +
+                "Pickup Location: " + rideRequest.getPickupLocation() + "\n" +
+                "Destination: " + rideRequest.getDropOffLocation() + "\n" +
+                "Fare: " + rideRequest.getFare();
+
+        // Send email to each driver
+        for (Driver driver : drivers) {
+            emailSenderService.sendEmail(new String[]{driver.getUser().getEmail()}, subject, body);
+        }
 
         return modelMapper.map(savedRideRequest, RideRequestDto.class);
     }

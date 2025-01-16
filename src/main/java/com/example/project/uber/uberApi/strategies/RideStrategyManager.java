@@ -25,6 +25,7 @@ public class RideStrategyManager {
         return nearestDriverStrategy;
     }
 
+    //        6PM to 9PM is SURGE TIME
     public RideFareCalculationStrategy rideFareCalculationStrategy() {
         LocalTime surgeStartTime = LocalTime.of(18, 0);
         LocalTime surgeEndTime = LocalTime.of(21, 0);

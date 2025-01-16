@@ -9,7 +9,7 @@ import com.example.project.uber.uberApi.entities.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import java.util.List;
+// import java.util.List;
 
 public interface RiderService {
     RideRequestDto requestRide(RideRequestDto rideRequestDto);
