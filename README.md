@@ -86,15 +86,22 @@ spring.application.name=uberApi
 
 # Database configuration
 spring.datasource.url=jdbc:postgresql://localhost:5432/demoDB?useSSL=false
+
 spring.datasource.username=demoUser
+
 spring.datasource.password=demoPassword
+
 spring.jpa.hibernate.ddl-auto=create-drop
+
 spring.jpa.show-sql=true
+
 spring.jpa.properties.hibernate.format_sql=true
 
 # Data initialization
 spring.jpa.defer-datasource-initialization=true
+
 spring.sql.init.mode=always
+
 spring.sql.init.data-locations=classpath:data.sql
 
 # JWT configuration
@@ -102,8 +109,13 @@ jwt.secretKey=demoSecretKey1234567890
 
 # SMTP configuration
 spring.mail.username=your-email@example.com
+
 spring.mail.password=your-email-password
+
 spring.mail.host=smtp.gmail.com
+
 spring.mail.port=587
+
 spring.mail.properties.mail.smtp.auth=true
+
 spring.mail.properties.mail.smtp.starttls.enable=true
